@@ -95,6 +95,17 @@
   
   
   
+  
+  
+  <link href="/js/lib/prism/prism-tomorrow.min.css" rel="stylesheet" data-prism="prism-tomorrow">
+  
+  
+  
+<link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+
+  
+  
+  
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -254,6 +265,35 @@
 <div class="card card-content comment-card" style="margin-top: 16px;">
   <div class="comment-card-title">评论</div>
   
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'UxryNMjZEyoiU4RTEzBfgxA8-gzGzoHsz',
+        appKey: 'zOtwtKdzyqD1zfAZO2r1MB3N',
+        placeholder: 'Just go go',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail","link"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        
+        
+        enableQQ: 'false',
+        requiredFields: [],
+      });
+    };
+  </script>
+
 </div>
 
 <div class="card card-content toc-card" id="mobiletoc">
@@ -270,7 +310,7 @@
 <p class="author-description">千言万语化作一句Factos</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>5</span>
+    <span>6</span>
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
@@ -304,7 +344,7 @@
       <a href="/categories/Blog Maintenance">
         <div class="categories-list-item">
           Blog Maintenance
-          <span class="categories-list-item-badge">1</span>
+          <span class="categories-list-item-badge">2</span>
         </div>
       </a>
     
@@ -324,9 +364,9 @@
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
-    
     <a href="\tags\网页测试" title="网页测试"><div class="tags-list-item">网页测试</div></a>
+    
+    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
     
   </div>
 </div>
@@ -352,6 +392,11 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-04-24</div>
+        <a href="/2023/04/24/代码高亮测试/"><div class="recent-posts-item-content">代码高亮测试</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-04-24</div>
         <a href="/2023/04/24/第二部分-进程管理Part2/"><div class="recent-posts-item-content">第二部分_进程管理Part2</div></a>
       </div>
     
@@ -363,11 +408,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-04-24</div>
         <a href="/2023/04/24/第一部分_概论Part2/"><div class="recent-posts-item-content">第一部分_概论Part2</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2023-04-24</div>
-        <a href="/2023/04/24/第一部分_概论Part1/"><div class="recent-posts-item-content">第一部分_概论Part1</div></a>
       </div>
     
   </div>

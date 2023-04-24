@@ -95,6 +95,17 @@
   
   
   
+  
+  
+  <link href="/js/lib/prism/prism-tomorrow.min.css" rel="stylesheet" data-prism="prism-tomorrow">
+  
+  
+  
+<link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
+
+  
+  
+  
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -151,7 +162,7 @@
     
     
     <span class="dot"></span>
-    <span>214 字</span>
+    <span>220 字</span>
     
   </div>
   
@@ -172,7 +183,16 @@
 <h1 id="多级标题-共六种"><a href="#多级标题-共六种" class="headerlink" title="多级标题(共六种)"></a>多级标题(共六种)</h1><h2 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h2><h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3><h4 id="四级"><a href="#四级" class="headerlink" title="四级"></a>四级</h4><h5 id="五级"><a href="#五级" class="headerlink" title="五级"></a>五级</h5><h6 id="六级"><a href="#六级" class="headerlink" title="六级"></a>六级</h6><hr>
 <h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>用不少于三个的’-‘创建分割线;</p>
 <hr>
-<h2 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h2><pre class="highlight"><span class="line">#include &lt;iostream&gt;</span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&quot;using ``` start ``` end to enter the code&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">return 0;</span><br></pre>
+<h2 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h2><pre class="line-numbers language-none"><code class="language-none">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main()
+&#123;
+    printf(&quot;using &#96;&#96;&#96; start &#96;&#96;&#96; end to enter the code&quot;);
+&#125;
+
+return 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a><em>斜体</em></h2><p>在两个*之间填充内容即可</p>
 <hr>
@@ -240,6 +260,35 @@
 <div class="card card-content comment-card" style="margin-top: 16px;">
   <div class="comment-card-title">评论</div>
   
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'UxryNMjZEyoiU4RTEzBfgxA8-gzGzoHsz',
+        appKey: 'zOtwtKdzyqD1zfAZO2r1MB3N',
+        placeholder: 'Just go go',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail","link"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        
+        
+        enableQQ: 'false',
+        requiredFields: [],
+      });
+    };
+  </script>
+
 </div>
 
 <div class="card card-content toc-card" id="mobiletoc">
@@ -256,7 +305,7 @@
 <p class="author-description">千言万语化作一句Factos</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>5</span>
+    <span>6</span>
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
@@ -290,7 +339,7 @@
       <a href="/categories/Blog Maintenance">
         <div class="categories-list-item">
           Blog Maintenance
-          <span class="categories-list-item-badge">1</span>
+          <span class="categories-list-item-badge">2</span>
         </div>
       </a>
     
@@ -338,6 +387,11 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-04-24</div>
+        <a href="/2023/04/24/代码高亮测试/"><div class="recent-posts-item-content">代码高亮测试</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2023-04-24</div>
         <a href="/2023/04/24/第二部分-进程管理Part2/"><div class="recent-posts-item-content">第二部分_进程管理Part2</div></a>
       </div>
     
@@ -349,11 +403,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-04-24</div>
         <a href="/2023/04/24/第一部分_概论Part2/"><div class="recent-posts-item-content">第一部分_概论Part2</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2023-04-24</div>
-        <a href="/2023/04/24/第一部分_概论Part1/"><div class="recent-posts-item-content">第一部分_概论Part1</div></a>
       </div>
     
   </div>
