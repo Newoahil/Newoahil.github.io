@@ -98,17 +98,6 @@
   
   
   
-  
-  
-  <link href="/js/lib/prism/prism-tomorrow.min.css" rel="stylesheet" data-prism="prism-tomorrow">
-  
-  
-  
-<link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
-
-  
-  
-  
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -189,18 +178,7 @@
 <p>3      &emsp;00:15      &emsp;1.5</p>
 <p>请问，在多线程/进程环境下，系统的总响应时间为  </p>
 </blockquote>
-<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><pre class="line-numbers language-none"><code class="language-none">0-10分钟的时候，只有一个进程1在运行。
-单进程CPU占有率是20%，所以这10分钟内，进程1消耗了2分钟的CPU。进程2是0，进程3也是0
-
-然后在10-15分钟内，有两个进程在运行（1和2），双进程的CPU利用率是36%，
-所以，这五分钟内，CPU一共利用了1.8分钟，平均分给每个进程，是0.9分钟。
-此时，进程1已经占用了CPU 2.9分钟，还需要0.6分钟，这时候有三个进程在运行，所有总的CPU时间需要1.8分钟。
-
-三进程的CPU利用率是48.8%，所以总共需要1.8&#x2F;0.488&#x3D;3.69分钟。这时，**进程1已经3.5分钟的CPu利用时间利用完了**。
-
-此时还剩下2和3号进程在运行。
-2号进程还需要0.5分钟，所以0.5×2&#x2F;0.36&#x3D;2.78，此时2号进程的2分钟CPU时间也利用完了。
-3号进程还需要0.4分钟的CPU利用时间。0.4&#x2F;0.2 &#x3D; 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><pre class="highlight"><code class="hljs x86asm"><span class="hljs-number">0</span>-<span class="hljs-number">10</span>分钟的时候，只有一个进程<span class="hljs-number">1</span>在运行。<br>单进程<span class="hljs-meta">CPU</span>占有率是<span class="hljs-number">20</span>%，所以这<span class="hljs-number">10</span>分钟内，进程<span class="hljs-number">1</span>消耗了<span class="hljs-number">2</span>分钟的<span class="hljs-meta">CPU</span>。进程<span class="hljs-number">2</span>是<span class="hljs-number">0</span>，进程<span class="hljs-number">3</span>也是<span class="hljs-number">0</span><br><br>然后在<span class="hljs-number">10</span>-<span class="hljs-number">15</span>分钟内，有两个进程在运行（<span class="hljs-number">1</span>和<span class="hljs-number">2</span>），双进程的<span class="hljs-meta">CPU</span>利用率是<span class="hljs-number">36</span>%，<br>所以，这五分钟内，<span class="hljs-meta">CPU</span>一共利用了<span class="hljs-number">1.8</span>分钟，平均分给每个进程，是<span class="hljs-number">0.9</span>分钟。<br>此时，进程<span class="hljs-number">1</span>已经占用了<span class="hljs-meta">CPU</span> <span class="hljs-number">2.9</span>分钟，还需要<span class="hljs-number">0.6</span>分钟，这时候有三个进程在运行，所有总的<span class="hljs-meta">CPU</span>时间需要<span class="hljs-number">1.8</span>分钟。<br><br>三进程的<span class="hljs-meta">CPU</span>利用率是<span class="hljs-number">48.8</span>%，所以总共需要<span class="hljs-number">1.8</span>/<span class="hljs-number">0.488</span>=<span class="hljs-number">3.69</span>分钟。这时，**进程<span class="hljs-number">1</span>已经<span class="hljs-number">3.5</span>分钟的<span class="hljs-meta">CPu</span>利用时间利用完了**。<br><br>此时还剩下<span class="hljs-number">2</span>和<span class="hljs-number">3</span>号进程在运行。<br><span class="hljs-number">2</span>号进程还需要<span class="hljs-number">0.5</span>分钟，所以<span class="hljs-number">0.5</span>×<span class="hljs-number">2</span>/<span class="hljs-number">0.36</span>=<span class="hljs-number">2.78</span>，此时<span class="hljs-number">2</span>号进程的<span class="hljs-number">2</span>分钟<span class="hljs-meta">CPU</span>时间也利用完了。<br><span class="hljs-number">3</span>号进程还需要<span class="hljs-number">0.4</span>分钟的<span class="hljs-meta">CPU</span>利用时间。<span class="hljs-number">0.4</span>/<span class="hljs-number">0.2</span> = <span class="hljs-number">2</span><br></code></pre>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><blockquote>
 <p>根据本题的初始效率(<strong>CPU 20% I/O 80%</strong>)</p>
 <ol>
@@ -213,13 +191,12 @@
 <h2 id="保证不发生死锁"><a href="#保证不发生死锁" class="headerlink" title="保证不发生死锁"></a>保证不发生死锁</h2><h3 id="例题1"><a href="#例题1" class="headerlink" title="例题1"></a>例题1</h3><blockquote>
 <p>系统中有4个并发进程，每个进程都需要2个A资源，则系统最少应提供（ ）个A资源才能保证不会发生死锁</p>
 </blockquote>
-<h3 id="解析1"><a href="#解析1" class="headerlink" title="解析1"></a>解析1</h3><pre class="line-numbers language-none"><code class="language-none">系统提供资源数 &#x3D; 1个A资源*4个进程+1个A资源 &#x3D; 5<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="解析1"><a href="#解析1" class="headerlink" title="解析1"></a>解析1</h3><pre class="highlight"><code class="hljs dns">系统提供资源数 = <span class="hljs-number">1</span>个<span class="hljs-keyword">A</span>资源*<span class="hljs-number">4</span>个进程+<span class="hljs-number">1</span>个<span class="hljs-keyword">A</span>资源 = <span class="hljs-number">5</span><br></code></pre>
 
 <h3 id="例题2"><a href="#例题2" class="headerlink" title="例题2"></a>例题2</h3><blockquote>
 <p>系统有11台打印机和N个并发进程，每个进程请求3台打印机，为确保不发生死锁，N的值最大为（ ）</p>
 </blockquote>
-<h3 id="解析2"><a href="#解析2" class="headerlink" title="解析2"></a>解析2</h3><pre class="line-numbers language-none"><code class="language-none">打印机数 &#x3D; 2个打印机*N个进程 + 1 &#x3D; 11
-N &#x3D; 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="解析2"><a href="#解析2" class="headerlink" title="解析2"></a>解析2</h3><pre class="highlight"><code class="hljs excel">打印机数 = <span class="hljs-number">2</span>个打印机*<span class="hljs-built_in">N</span>个进程 + <span class="hljs-number">1</span> = <span class="hljs-number">11</span><br><span class="hljs-built_in">N</span> = <span class="hljs-number">5</span><br></code></pre>
 <h3 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h3><blockquote>
 <p>保证不发生死锁,即至少有一个进程能获得所有资源,即至少一个进程能获得2个A资源,其他进程获得一个A资源</p>
 </blockquote>
@@ -278,17 +255,7 @@ N &#x3D; 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <hr>
 <p>使用FCFS,SJF,RR(时间片 = 1)调度算法.<del>画出各自Gannt图</del>(解析暂不提供),<strong>回答每种调度算法的平均周转时间和平均等待时间</strong>.</p>
 </blockquote>
-<h3 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h3><pre class="line-numbers language-none"><code class="language-none">FCFS:
-平均周转时间:[3+(4 - 1)+(7-2)+(9-3)]&#x2F;4 &#x3D; 4.25
-平均等待时间:[0+(3-1)+(4-2)+(7-3)]&#x2F;4 &#x3D; 2
-
-SJF:
-平均周转时间:[3+(4-1)+(6-3)+(9-2)]&#x2F;4 &#x3D; 4
-平均等待时间:[0+(3-1)+(4-3)+(6-2)]&#x2F;4 &#x3D; 1.75
-
-RR:
-平均周转时间:[(2-1)+(7-3)+(8-0)+(9-2)]&#x2F;4 &#x3D; 4.25
-平均等待时间:[(3+2)+(0)+(2+2)+(2)]&#x2F;4 &#x3D; 2.75<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="解析-1"><a href="#解析-1" class="headerlink" title="解析"></a>解析</h3><pre class="highlight"><code class="hljs gcode">FCFS:<br>平均周转时间:[<span class="hljs-number">3</span>+<span class="hljs-comment">(4 - 1)</span>+<span class="hljs-comment">(7 - 2)</span>+<span class="hljs-comment">(9 - 3)</span>]/<span class="hljs-number">4</span> = <span class="hljs-number">4.25</span><br>平均等待时间:[<span class="hljs-number">0</span>+<span class="hljs-comment">(3 - 1)</span>+<span class="hljs-comment">(4 - 2)</span>+<span class="hljs-comment">(7 - 3)</span>]/<span class="hljs-number">4</span> = <span class="hljs-number">2</span><br><br>SJF:<br>平均周转时间:[<span class="hljs-number">3</span>+<span class="hljs-comment">(4 - 1)</span>+<span class="hljs-comment">(6 - 3)</span>+<span class="hljs-comment">(9 - 2)</span>]/<span class="hljs-number">4</span> = <span class="hljs-number">4</span><br>平均等待时间:[<span class="hljs-number">0</span>+<span class="hljs-comment">(3 - 1)</span>+<span class="hljs-comment">(4 - 3)</span>+<span class="hljs-comment">(6 - 2)</span>]/<span class="hljs-number">4</span> = <span class="hljs-number">1.75</span><br><br>RR:<br>平均周转时间:[<span class="hljs-comment">(2 - 1)</span>+<span class="hljs-comment">(7 - 3)</span>+<span class="hljs-comment">(8 - 0)</span>+<span class="hljs-comment">(9 - 2)</span>]/<span class="hljs-number">4</span> = <span class="hljs-number">4.25</span><br>平均等待时间:[<span class="hljs-comment">(3 + 2)</span>+<span class="hljs-comment">(0)</span>+<span class="hljs-comment">(2 + 2)</span>+<span class="hljs-comment">(2)</span>]/<span class="hljs-number">4</span> = <span class="hljs-number">2.75</span><br></code></pre>
 
 
   </div>

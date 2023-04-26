@@ -98,17 +98,6 @@
   
   
   
-  
-  
-  <link href="/js/lib/prism/prism-tomorrow.min.css" rel="stylesheet" data-prism="prism-tomorrow">
-  
-  
-  
-<link rel="stylesheet" href="/js/lib/prism/prism-line-numbers.min.css">
-
-  
-  
-  
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -165,7 +154,7 @@
     
     
     <span class="dot"></span>
-    <span>454 字</span>
+    <span>395 字</span>
     
   </div>
   
@@ -181,82 +170,10 @@
   
   </header>
   <div id="section" class="post-content">
-    <h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><pre class="line-numbers language-none"><code class="language-none">#include&lt;cstdio&gt;
-#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-const int maxn&#x3D;1050;
-const int maxm&#x3D;20000010;
-int h,n,v[maxn],w[maxn],f[maxm],maxx;
-int main()
-&#123;
-	cin&gt;&gt;h&gt;&gt;n;
-	memset(f,0x3f,sizeof(f));
-	f[0]&#x3D;0;
-	for(int i&#x3D;1;i&lt;&#x3D;n;i++) cin&gt;&gt;v[i]&gt;&gt;w[i],maxx&#x3D;max(v[i],maxx);
-	for(int i&#x3D;1;i&lt;&#x3D;n;i++)
-	&#123;
-		for(int j&#x3D;v[i];j&lt;&#x3D;h+maxx;j++)
-			f[j]&#x3D;min(f[j],f[j-v[i]]+w[i]);	
-	&#125;
-	int ans&#x3D;inf;
-	for(int i&#x3D;h;i&lt;&#x3D;h+maxx;i++) ans&#x3D;min(ans,f[i]);
-	cout&lt;&lt;ans&lt;&lt;endl;
-	return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><pre class="line-numbers language-none"><code class="language-none">import java.util.Scanner;
-
-public class Main &#123;
-    public static void main(String[] args) &#123;
-        Scanner sc &#x3D; new Scanner(System.in);
-        double[][] M &#x3D; new double[12][12];
-        double sum &#x3D; 0, cnt &#x3D; 0;
-        char C &#x3D; sc.next().charAt(0);
-
-        for(int i &#x3D; 0; i &lt; 12; i++)
-            for(int j &#x3D; 0; j &lt; 12; j++)
-            &#123;
-                M[i][j] &#x3D; sc.nextDouble();
-                if(i &lt; j &amp;&amp; i + j &gt; 11)
-                &#123;
-                    sum +&#x3D; M[i][j];
-                    cnt++;
-                &#125;
-            &#125;
-        if(C &#x3D;&#x3D; &#39;M&#39;)
-            sum &#x3D;  sum &#x2F; cnt;
-        System.out.printf(&quot;%.1f&quot;, sum);
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><pre class="line-numbers language-none"><code class="language-none">const smoothScrollToTop &#x3D; () &#x3D;&gt; &#123;
-  let yTopValve &#x3D; (window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop);
-  if (yTopValve &gt; 1) &#123;
-    window.requestAnimationFrame(smoothScrollToTop);
-    scrollTo(0, Math.floor(yTopValve * 0.85));
-  &#125; else &#123;
-    scrollTo(0, 0);
-  &#125;
-&#125;;
-
-setTimeout(() &#x3D;&gt; &#123;
-  document.getElementById(&#39;scrollbutton&#39;).onclick &#x3D; smoothScrollToTop;
-&#125;, 0);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><pre class="line-numbers language-none"><code class="language-none">import requests
-import re
-import sys
-import os
-url &#x3D; &#39;https:&#x2F;&#x2F;twoshot.hgame.n3ko.co&#x2F;&#39;
-headers &#x3D; &#123;
-    &#39;Content-Type&#39;: &#39;application&#x2F;x-www-form-urlencoded&#39;,
-    &#39;User-Agent&#39;: &#39;Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;71.0.3578.98 Safari&#x2F;537.36&#39;,
-&#125;
-p &#x3D; requests.get(url+&#39;random.php?times&#x3D;228&#39;, headers&#x3D;headers)
-randnum &#x3D; re.findall(r&#39;\d*&#39;, p.text)[1:-2:2]
-firstnum &#x3D; randnum[0]
-lastnum &#x3D; randnum[227]
-content &#x3D; os.popen(&quot;python3 .&#x2F;reverse_mt_rand.py &quot; +
-                   firstnum+&#39; &#39;+lastnum+&#39; 0 0&#39;).read()
-q &#x3D; requests.post(url+&#39;&#x2F;verify.php&#39;, headers&#x3D;headers, data&#x3D;&#123;&#39;ans&#39;: content&#125;)
-print(q.text)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    <h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;cstdio&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span><span class="hljs-string">&lt;algorithm&gt;</span></span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxn=<span class="hljs-number">1050</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> maxm=<span class="hljs-number">20000010</span>;<br><span class="hljs-type">int</span> h,n,v[maxn],w[maxn],f[maxm],maxx;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	cin&gt;&gt;h&gt;&gt;n;<br>	<span class="hljs-built_in">memset</span>(f,<span class="hljs-number">0x3f</span>,<span class="hljs-built_in">sizeof</span>(f));<br>	f[<span class="hljs-number">0</span>]=<span class="hljs-number">0</span>;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++) cin&gt;&gt;v[i]&gt;&gt;w[i],maxx=<span class="hljs-built_in">max</span>(v[i],maxx);<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=<span class="hljs-number">1</span>;i&lt;=n;i++)<br>	&#123;<br>		<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> j=v[i];j&lt;=h+maxx;j++)<br>			f[j]=<span class="hljs-built_in">min</span>(f[j],f[j-v[i]]+w[i]);	<br>	&#125;<br>	<span class="hljs-type">int</span> ans=inf;<br>	<span class="hljs-keyword">for</span>(<span class="hljs-type">int</span> i=h;i&lt;=h+maxx;i++) ans=<span class="hljs-built_in">min</span>(ans,f[i]);<br>	cout&lt;&lt;ans&lt;&lt;endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre>
+<h2 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h2><pre class="highlight"><code class="hljs axapta">import java.util.Scanner;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(String[] args) &#123;<br>        Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.<span class="hljs-keyword">in</span>);<br>        <span class="hljs-built_in">double</span>[][] M = <span class="hljs-keyword">new</span> <span class="hljs-built_in">double</span>[<span class="hljs-number">12</span>][<span class="hljs-number">12</span>];<br>        <span class="hljs-built_in">double</span> <span class="hljs-keyword">sum</span> = <span class="hljs-number">0</span>, cnt = <span class="hljs-number">0</span>;<br>        <span class="hljs-built_in">char</span> C = sc.<span class="hljs-keyword">next</span>().charAt(<span class="hljs-number">0</span>);<br><br>        <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">12</span>; i++)<br>            <span class="hljs-keyword">for</span>(<span class="hljs-built_in">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">12</span>; j++)<br>            &#123;<br>                M[i][j] = sc.nextDouble();<br>                <span class="hljs-keyword">if</span>(i &lt; j &amp;&amp; i + j &gt; <span class="hljs-number">11</span>)<br>                &#123;<br>                    <span class="hljs-keyword">sum</span> += M[i][j];<br>                    cnt++;<br>                &#125;<br>            &#125;<br>        <span class="hljs-keyword">if</span>(C == <span class="hljs-string">&#x27;M&#x27;</span>)<br>            <span class="hljs-keyword">sum</span> =  <span class="hljs-keyword">sum</span> / cnt;<br>        System.out.printf(<span class="hljs-string">&quot;%.1f&quot;</span>, <span class="hljs-keyword">sum</span>);<br>    &#125;<br>&#125;<br></code></pre>
+<h2 id="Javascript"><a href="#Javascript" class="headerlink" title="Javascript"></a>Javascript</h2><pre class="highlight"><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">smoothScrollToTop</span> = (<span class="hljs-params"></span>) =&gt; &#123;<br>  <span class="hljs-keyword">let</span> yTopValve = (<span class="hljs-variable language_">window</span>.<span class="hljs-property">pageYOffset</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">scrollTop</span> || <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>.<span class="hljs-property">scrollTop</span>);<br>  <span class="hljs-keyword">if</span> (yTopValve &gt; <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-variable language_">window</span>.<span class="hljs-title function_">requestAnimationFrame</span>(smoothScrollToTop);<br>    <span class="hljs-title function_">scrollTo</span>(<span class="hljs-number">0</span>, <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(yTopValve * <span class="hljs-number">0.85</span>));<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-title function_">scrollTo</span>(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>);<br>  &#125;<br>&#125;;<br><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;<br>  <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;scrollbutton&#x27;</span>).<span class="hljs-property">onclick</span> = smoothScrollToTop;<br>&#125;, <span class="hljs-number">0</span>);<br></code></pre>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><pre class="highlight"><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> os<br>url = <span class="hljs-string">&#x27;https://twoshot.hgame.n3ko.co/&#x27;</span><br>headers = &#123;<br>    <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/x-www-form-urlencoded&#x27;</span>,<br>    <span class="hljs-string">&#x27;User-Agent&#x27;</span>: <span class="hljs-string">&#x27;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36&#x27;</span>,<br>&#125;<br>p = requests.get(url+<span class="hljs-string">&#x27;random.php?times=228&#x27;</span>, headers=headers)<br>randnum = re.findall(<span class="hljs-string">r&#x27;\d*&#x27;</span>, p.text)[<span class="hljs-number">1</span>:-<span class="hljs-number">2</span>:<span class="hljs-number">2</span>]<br>firstnum = randnum[<span class="hljs-number">0</span>]<br>lastnum = randnum[<span class="hljs-number">227</span>]<br>content = os.popen(<span class="hljs-string">&quot;python3 ./reverse_mt_rand.py &quot;</span> +<br>                   firstnum+<span class="hljs-string">&#x27; &#x27;</span>+lastnum+<span class="hljs-string">&#x27; 0 0&#x27;</span>).read()<br>q = requests.post(url+<span class="hljs-string">&#x27;/verify.php&#x27;</span>, headers=headers, data=&#123;<span class="hljs-string">&#x27;ans&#x27;</span>: content&#125;)<br><span class="hljs-built_in">print</span>(q.text)<br></code></pre>
 
 
   </div>
