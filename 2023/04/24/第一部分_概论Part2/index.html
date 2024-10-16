@@ -77,9 +77,6 @@
   
   
   
-  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
-  
-  
   
   
 <link rel="stylesheet" href="/css/main.css">
@@ -151,7 +148,7 @@
     
     
     <span class="dot"></span>
-    <span>251 字</span>
+    <span>1.6k 字</span>
     
   </div>
   
@@ -169,7 +166,7 @@
   <div id="section" class="post-content">
     <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><hr>
 <blockquote>
-<p>多程序设计的目的 <strong>提高计算机资源利用率</strong></p>
+<p>xxxxxxxxxx import java.awt.EventQueue;import javax.swing.JFrame;import javax.swing.JPanel;import javax.swing.border.EmptyBorder;import java.awt.BorderLayout;import java.awt.Dimension;import javax.swing.JTextField;import java.awt.GridLayout;import javax.swing.JButton;import java.awt.Font;import java.awt.event.ActionListener;import java.awt.event.ActionEvent;import javax.swing.SwingConstants;​public class FrmCalc extends JFrame {​    private JPanel contentPane;    private JTextField txt;    //定义必要的属性    boolean blnNum =  true;//true表示重新输入数字,false表示连续输入数字    boolean blnResult = true;    int num1;//第一个数    int num2;//第二个数    char op;//运算符    int result;//结果        ​    /**     * Launch the application.     <em>/    public static void main(String[] args) {        EventQueue.invokeLater(new Runnable() {            public void run() {                try {                    FrmCalc frame = new FrmCalc();                    frame.setVisible(true);                } catch (Exception e) {                    e.printStackTrace();                }            }        });    }​    /</em>*     * Create the frame.     <em>/    public FrmCalc() {        setTitle(“Newoahil计算器”);        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);        setBounds(100, 100, 317, 461);        contentPane = new JPanel();        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));​        setContentPane(contentPane);        contentPane.setLayout(new BorderLayout(0, 0));                JPanel pnlNorth = new JPanel();        pnlNorth.setPreferredSize(new Dimension(10, 70));        contentPane.add(pnlNorth, BorderLayout.NORTH);        pnlNorth.setLayout(null);                txt = new JTextField();        txt.setHorizontalAlignment(SwingConstants.RIGHT);        txt.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 16));        txt.setBounds(10, 10, 273, 50);        pnlNorth.add(txt);        txt.setColumns(10);                JPanel pnlWest = new JPanel();        contentPane.add(pnlWest, BorderLayout.WEST);                JPanel pnlEast = new JPanel();        contentPane.add(pnlEast, BorderLayout.EAST);                JPanel pnlSouth = new JPanel();        contentPane.add(pnlSouth, BorderLayout.SOUTH);                JPanel pnlCenter = new JPanel();        contentPane.add(pnlCenter, BorderLayout.CENTER);        pnlCenter.setLayout(new GridLayout(5, 4, 10, 10));                JButton btnBack = new JButton(“←”);        btnBack.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                //回退键                String str = txt.getText();                if(str.length()&gt;0) {                    txt.setText(str.substring(0,str.length() - 1));                }            }        });        btnBack.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnBack);                JButton btnCE = new JButton(“CE”);        btnCE.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                //清除第二个操作数                num2 = 0;                txt.setText(“”);                blnNum = true;            }        });        btnCE.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnCE);                JButton btnC = new JButton(“C”);        btnC.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                //重置环境                CleanAll();            }        });        btnC.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnC);                JButton btnNewButton_3 = new JButton(“New button”);        btnNewButton_3.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnNewButton_3);                JButton btn7 = new JButton(“7”);        btn7.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“7”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“7”);                    }                    else {                        txt.setText(txt.getText() + “7”);                    }                }            }        });        btn7.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn7);                JButton btn8 = new JButton(“8”);        btn8.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“8”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“8”);                    }                    else {                        txt.setText(txt.getText() + “8”);                    }                }            }        });        btn8.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn8);                JButton btn9 = new JButton(“9”);        btn9.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“9”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“9”);                    }                    else {                        txt.setText(txt.getText() + “9”);                    }                }            }        });        btn9.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn9);                JButton btnAdd = new JButton(“+”);        btnAdd.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                num1 = Integer.parseInt(txt.getText());//保存第一个数                op = ‘+’;//保存运算符                txt.setText(“”);            }        });        btnAdd.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnAdd);                JButton btn4 = new JButton(“4”);        btn4.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“4”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“4”);                    }                    else {                        txt.setText(txt.getText() + “4”);                    }                }            }        });        btn4.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn4);                JButton btn5 = new JButton(“5”);        btn5.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“5”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“5”);                    }                    else {                        txt.setText(txt.getText() + “5”);                    }                }            }        });        btn5.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn5);                JButton btn6 = new JButton(“6”);        btn6.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“6”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“6”);                    }                    else {                        txt.setText(txt.getText() + “6”);                    }                }            }        });        btn6.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn6);                JButton btnMinus = new JButton(“-“);        btnMinus.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                num1 = Integer.parseInt(txt.getText());//保存第一个数                op = ‘-‘;//保存运算符                txt.setText(“”);            }        });        btnMinus.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnMinus);                JButton btn1 = new JButton(“1”);        btn1.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“1”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“1”);                    }                    else {                        txt.setText(txt.getText() + “1”);                    }                }            }        });        btn1.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn1);                JButton btn2 = new JButton(“2”);        btn2.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“2”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“2”);                    }                    else {                        txt.setText(txt.getText() + “2”);                    }                }            }        });        btn2.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn2);                JButton btn3 = new JButton(“3”);        btn3.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“3”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“3”);                    }                    else {                        txt.setText(txt.getText() + “3”);                    }                }            }        });        btn3.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn3);                JButton btnTimes = new JButton(“</em>“);        btnTimes.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                num1 = Integer.parseInt(txt.getText());//保存第一个数                op = ‘<em>‘;//保存运算符                txt.setText(“”);            }        });        btnTimes.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnTimes);                JButton btnNewButton_14 = new JButton(“New button”);        btnNewButton_14.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnNewButton_14);                JButton btn0 = new JButton(“0”);        btn0.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                if(blnNum) {                    txt.setText(“0”);                    blnNum = false;                }                else {                    if(txt.getText().equals(“0”)) {//如果原文本框内内容为0                        txt.setText(“0”);                    }                    else {                        txt.setText(txt.getText() + “0”);                    }                }            }        });        btn0.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btn0);                JButton btnEqu = new JButton(“=”);        btnEqu.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                num2 = Integer.parseInt(txt.getText());//存第二个数                switch(op) {//计算                    case ‘+’:                        result = num1 + num2;                        break;                    case ‘-‘:                        result = num1 - num2;                        break;                    case ‘</em>‘:                        result = num1 * num2;                        break;                    case ‘/‘:                        if(num2 == 0) {                            blnResult = false;                            txt.setText(“除数不能为0”);                        }                        else {                            result = num1 / num2;                        }                        break;                }                txt.setText(“” + result);//显示结果(空字符串+result即可转换为String类型)                //恢复现场                blnNum = true;                blnResult = true;            }        });        btnEqu.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnEqu);                JButton btnDiv = new JButton(“/“);        btnDiv.addActionListener(new ActionListener() {            public void actionPerformed(ActionEvent e) {                num1 = Integer.parseInt(txt.getText());//保存第一个数                op = ‘/‘;//保存运算符                txt.setText(“”);            }        });        btnDiv.setFont(new Font(“微软雅黑 Light”, Font.BOLD, 15));        pnlCenter.add(btnDiv);    }        void CleanAll() {        txt.setText(“”);        num1 = 0;        num2 = 0;        blnNum = true;        blnResult = true;    }    }​java</p>
 </blockquote>
 <blockquote>
 <p>分时系统设计的目的 <strong>提高交互性</strong></p>
@@ -251,40 +248,6 @@
   
 </div>
 
-<div class="card card-content comment-card" style="margin-top: 16px;">
-  <div class="comment-card-title">评论</div>
-  
-  <div id="vcomments"></div>
-  
-  <script>
-    loadScript("//unpkg.com/valine/dist/Valine.min.js");
-    var oldLoadVa = window.onload;
-    window.onload = function () {
-      oldLoadVa && oldLoadVa();
-      new Valine({
-        el: '#vcomments',
-        appId: 'UxryNMjZEyoiU4RTEzBfgxA8-gzGzoHsz',
-        appKey: 'zOtwtKdzyqD1zfAZO2r1MB3N',
-        placeholder: '畅所欲言',
-        path: window.location.pathname,
-        avatar: 'mp',
-        meta: ["nick","mail","link"],
-        pageSize: '10',
-        lang: '',
-        visitor: 'false',
-        highlight: true,
-        recordIP: false,
-        
-        
-        
-        enableQQ: 'false',
-        requiredFields: [],
-      });
-    };
-  </script>
-
-</div>
-
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">概念</span></a></li></ol>
@@ -299,11 +262,11 @@
 <p class="author-description">千言万语化作一句Factos</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>10</span>
+    <span>11</span>
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
-    <span>4</span>
+    <span>6</span>
     <span>分类</span>
   </a>
   <a class="author-tags-count" href="/tags">
@@ -330,17 +293,24 @@
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/Java">
+      <a href="/categories/FM-competition-Record">
         <div class="categories-list-item">
-          Java
-          <span class="categories-list-item-badge">2</span>
+          FM-competition-Record
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
-      <a href="/categories/Blog-Maintenance">
+      <a href="/categories/JavaWeb">
         <div class="categories-list-item">
-          Blog-Maintenance
-          <span class="categories-list-item-badge">2</span>
+          JavaWeb
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/JavaSE">
+        <div class="categories-list-item">
+          JavaSE
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
@@ -348,6 +318,13 @@
         <div class="categories-list-item">
           Operating-System-OS
           <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Blog-Maintenance">
+        <div class="categories-list-item">
+          Blog-Maintenance
+          <span class="categories-list-item-badge">2</span>
         </div>
       </a>
     
@@ -367,15 +344,15 @@
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\Swing" title="Swing"><div class="tags-list-item">Swing</div></a>
-    
-    <a href="\tags\JavaScript" title="JavaScript"><div class="tags-list-item">JavaScript</div></a>
+    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
     
     <a href="\tags\网页测试" title="网页测试"><div class="tags-list-item">网页测试</div></a>
     
-    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
+    <a href="\tags\Java" title="Java"><div class="tags-list-item">Java</div></a>
     
     <a href="\tags\PaddlePaddle" title="PaddlePaddle"><div class="tags-list-item">PaddlePaddle</div></a>
+    
+    <a href="\tags\Mun23/24" title="Mun23/24"><div class="tags-list-item">Mun23/24</div></a>
     
   </div>
 </div>
@@ -400,23 +377,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-10-16</div>
+        <a href="/2024/10/16/ManchesterUnited-23-24/"><div class="recent-posts-item-content">ManchesterUnited_23/24</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-07-15</div>
-        <a href="/2023/07/15/JavaScript/"><div class="recent-posts-item-content">JavaWeb</div></a>
+        <a href="/2023/07/15/JavaScript/"><div class="recent-posts-item-content">JavaScript</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-05-20</div>
-        <a href="/2023/05/20/Java-Swing制作计算器/"><div class="recent-posts-item-content">Java Swing制作计算器</div></a>
+        <a href="/2023/05/20/Java-Swing制作计算器/"><div class="recent-posts-item-content">JavaSwing制作计算器</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-05-05</div>
         <a href="/2023/05/05/鸡鸭识别器/"><div class="recent-posts-item-content">鸡鸭识别器</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2023-04-26</div>
-        <a href="/2023/04/26/OS计算方法集合/"><div class="recent-posts-item-content">OS计算方法集合</div></a>
       </div>
     
   </div>
@@ -439,7 +416,7 @@
           
           2023 -
           
-          2023
+          2024
         </span>
         <a href="/" class="footer-link">Newoahil's Blog </a>
       </div>

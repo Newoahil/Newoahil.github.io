@@ -77,9 +77,6 @@
   
   
   
-  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
-  
-  
   
   
 <link rel="stylesheet" href="/css/main.css">
@@ -289,40 +286,6 @@
   
 </div>
 
-<div class="card card-content comment-card" style="margin-top: 16px;">
-  <div class="comment-card-title">评论</div>
-  
-  <div id="vcomments"></div>
-  
-  <script>
-    loadScript("//unpkg.com/valine/dist/Valine.min.js");
-    var oldLoadVa = window.onload;
-    window.onload = function () {
-      oldLoadVa && oldLoadVa();
-      new Valine({
-        el: '#vcomments',
-        appId: 'UxryNMjZEyoiU4RTEzBfgxA8-gzGzoHsz',
-        appKey: 'zOtwtKdzyqD1zfAZO2r1MB3N',
-        placeholder: '畅所欲言',
-        path: window.location.pathname,
-        avatar: 'mp',
-        meta: ["nick","mail","link"],
-        pageSize: '10',
-        lang: '',
-        visitor: 'false',
-        highlight: true,
-        recordIP: false,
-        
-        
-        
-        enableQQ: 'false',
-        requiredFields: [],
-      });
-    };
-  </script>
-
-</div>
-
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E9%81%93%E7%BC%96%E7%A8%8B%E6%97%B6CPU%E5%88%A9%E7%94%A8%E7%8E%87%E6%B1%82%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">多道编程时CPU利用率求法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">1.3.</span> <span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%9D%E8%AF%81%E4%B8%8D%E5%8F%91%E7%94%9F%E6%AD%BB%E9%94%81"><span class="toc-number">2.</span> <span class="toc-text">保证不发生死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%981"><span class="toc-number">2.1.</span> <span class="toc-text">例题1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%901"><span class="toc-number">2.2.</span> <span class="toc-text">解析1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%982"><span class="toc-number">2.3.</span> <span class="toc-text">例题2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%902"><span class="toc-number">2.4.</span> <span class="toc-text">解析2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-1"><span class="toc-number">2.5.</span> <span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E6%9C%BA%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">处理机调度算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E5%88%B0%E5%85%88%E6%9C%8D%E5%8A%A1%E7%AE%97%E6%B3%95-FCFS"><span class="toc-number">3.1.</span> <span class="toc-text">先到先服务算法(FCFS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E4%BD%9C%E4%B8%9A%E4%BC%98%E5%85%88%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-SJF"><span class="toc-number">3.2.</span> <span class="toc-text">最短作业优先调度算法(SJF)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AE%E8%BD%AC%E6%B3%95%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95-RR"><span class="toc-number">3.3.</span> <span class="toc-text">轮转法调度算法(RR)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6%E6%80%A7%E8%83%BD%E8%A1%A1%E9%87%8F"><span class="toc-number">3.4.</span> <span class="toc-text">作业调度性能衡量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98-1"><span class="toc-number">3.5.</span> <span class="toc-text">例题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90-1"><span class="toc-number">3.6.</span> <span class="toc-text">解析</span></a></li></ol></li></ol>
@@ -337,11 +300,11 @@
 <p class="author-description">千言万语化作一句Factos</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>10</span>
+    <span>11</span>
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
-    <span>4</span>
+    <span>6</span>
     <span>分类</span>
   </a>
   <a class="author-tags-count" href="/tags">
@@ -368,17 +331,24 @@
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/Java">
+      <a href="/categories/FM-competition-Record">
         <div class="categories-list-item">
-          Java
-          <span class="categories-list-item-badge">2</span>
+          FM-competition-Record
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
-      <a href="/categories/Blog-Maintenance">
+      <a href="/categories/JavaWeb">
         <div class="categories-list-item">
-          Blog-Maintenance
-          <span class="categories-list-item-badge">2</span>
+          JavaWeb
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/JavaSE">
+        <div class="categories-list-item">
+          JavaSE
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
@@ -386,6 +356,13 @@
         <div class="categories-list-item">
           Operating-System-OS
           <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Blog-Maintenance">
+        <div class="categories-list-item">
+          Blog-Maintenance
+          <span class="categories-list-item-badge">2</span>
         </div>
       </a>
     
@@ -405,15 +382,15 @@
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\Swing" title="Swing"><div class="tags-list-item">Swing</div></a>
-    
-    <a href="\tags\JavaScript" title="JavaScript"><div class="tags-list-item">JavaScript</div></a>
+    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
     
     <a href="\tags\网页测试" title="网页测试"><div class="tags-list-item">网页测试</div></a>
     
-    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
+    <a href="\tags\Java" title="Java"><div class="tags-list-item">Java</div></a>
     
     <a href="\tags\PaddlePaddle" title="PaddlePaddle"><div class="tags-list-item">PaddlePaddle</div></a>
+    
+    <a href="\tags\Mun23/24" title="Mun23/24"><div class="tags-list-item">Mun23/24</div></a>
     
   </div>
 </div>
@@ -438,23 +415,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-10-16</div>
+        <a href="/2024/10/16/ManchesterUnited-23-24/"><div class="recent-posts-item-content">ManchesterUnited_23/24</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-07-15</div>
-        <a href="/2023/07/15/JavaScript/"><div class="recent-posts-item-content">JavaWeb</div></a>
+        <a href="/2023/07/15/JavaScript/"><div class="recent-posts-item-content">JavaScript</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-05-20</div>
-        <a href="/2023/05/20/Java-Swing制作计算器/"><div class="recent-posts-item-content">Java Swing制作计算器</div></a>
+        <a href="/2023/05/20/Java-Swing制作计算器/"><div class="recent-posts-item-content">JavaSwing制作计算器</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-05-05</div>
         <a href="/2023/05/05/鸡鸭识别器/"><div class="recent-posts-item-content">鸡鸭识别器</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2023-04-26</div>
-        <a href="/2023/04/26/OS计算方法集合/"><div class="recent-posts-item-content">OS计算方法集合</div></a>
       </div>
     
   </div>
@@ -477,7 +454,7 @@
           
           2023 -
           
-          2023
+          2024
         </span>
         <a href="/" class="footer-link">Newoahil's Blog </a>
       </div>

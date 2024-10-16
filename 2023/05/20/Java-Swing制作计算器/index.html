@@ -77,9 +77,6 @@
   
   
   
-  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
-  
-  
   
   
 <link rel="stylesheet" href="/css/main.css">
@@ -135,7 +132,7 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      Java Swing制作计算器
+      JavaSwing制作计算器
     </h1>
   </header>
   <div class="post-meta post-show-meta">
@@ -146,7 +143,7 @@
     
     <span class="dot"></span>
     
-    <a href="/categories/Java/" class="post-meta-link">Java</a>
+    <a href="/categories/JavaSE/" class="post-meta-link">JavaSE</a>
     
     
     
@@ -160,7 +157,7 @@
       <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
       
       
-        <a href="/tags/Swing/" class="post-meta-link">Swing</a>
+        <a href="/tags/Java/" class="post-meta-link">Java</a>
       
     </div>
   </div>
@@ -185,7 +182,7 @@
       <div>
         <div class="nav-label">上一篇</div>
         
-        <div class="nav-title">JavaWeb </div>
+        <div class="nav-title">JavaScript </div>
         
       </div>
     </a>
@@ -206,40 +203,6 @@
   
 </div>
 
-<div class="card card-content comment-card" style="margin-top: 16px;">
-  <div class="comment-card-title">评论</div>
-  
-  <div id="vcomments"></div>
-  
-  <script>
-    loadScript("//unpkg.com/valine/dist/Valine.min.js");
-    var oldLoadVa = window.onload;
-    window.onload = function () {
-      oldLoadVa && oldLoadVa();
-      new Valine({
-        el: '#vcomments',
-        appId: 'UxryNMjZEyoiU4RTEzBfgxA8-gzGzoHsz',
-        appKey: 'zOtwtKdzyqD1zfAZO2r1MB3N',
-        placeholder: '畅所欲言',
-        path: window.location.pathname,
-        avatar: 'mp',
-        meta: ["nick","mail","link"],
-        pageSize: '10',
-        lang: '',
-        visitor: 'false',
-        highlight: true,
-        recordIP: false,
-        
-        
-        
-        enableQQ: 'false',
-        requiredFields: [],
-      });
-    };
-  </script>
-
-</div>
-
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
 <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">框架结构</span></a></li></ol>
@@ -254,11 +217,11 @@
 <p class="author-description">千言万语化作一句Factos</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>10</span>
+    <span>11</span>
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
-    <span>4</span>
+    <span>6</span>
     <span>分类</span>
   </a>
   <a class="author-tags-count" href="/tags">
@@ -285,17 +248,24 @@
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
     
-      <a href="/categories/Java">
+      <a href="/categories/FM-competition-Record">
         <div class="categories-list-item">
-          Java
-          <span class="categories-list-item-badge">2</span>
+          FM-competition-Record
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
-      <a href="/categories/Blog-Maintenance">
+      <a href="/categories/JavaWeb">
         <div class="categories-list-item">
-          Blog-Maintenance
-          <span class="categories-list-item-badge">2</span>
+          JavaWeb
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/JavaSE">
+        <div class="categories-list-item">
+          JavaSE
+          <span class="categories-list-item-badge">1</span>
         </div>
       </a>
     
@@ -303,6 +273,13 @@
         <div class="categories-list-item">
           Operating-System-OS
           <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+      <a href="/categories/Blog-Maintenance">
+        <div class="categories-list-item">
+          Blog-Maintenance
+          <span class="categories-list-item-badge">2</span>
         </div>
       </a>
     
@@ -322,15 +299,15 @@
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\Swing" title="Swing"><div class="tags-list-item">Swing</div></a>
-    
-    <a href="\tags\JavaScript" title="JavaScript"><div class="tags-list-item">JavaScript</div></a>
+    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
     
     <a href="\tags\网页测试" title="网页测试"><div class="tags-list-item">网页测试</div></a>
     
-    <a href="\tags\操作系统" title="操作系统"><div class="tags-list-item">操作系统</div></a>
+    <a href="\tags\Java" title="Java"><div class="tags-list-item">Java</div></a>
     
     <a href="\tags\PaddlePaddle" title="PaddlePaddle"><div class="tags-list-item">PaddlePaddle</div></a>
+    
+    <a href="\tags\Mun23/24" title="Mun23/24"><div class="tags-list-item">Mun23/24</div></a>
     
   </div>
 </div>
@@ -355,23 +332,23 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2024-10-16</div>
+        <a href="/2024/10/16/ManchesterUnited-23-24/"><div class="recent-posts-item-content">ManchesterUnited_23/24</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-07-15</div>
-        <a href="/2023/07/15/JavaScript/"><div class="recent-posts-item-content">JavaWeb</div></a>
+        <a href="/2023/07/15/JavaScript/"><div class="recent-posts-item-content">JavaScript</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-05-20</div>
-        <a href="/2023/05/20/Java-Swing制作计算器/"><div class="recent-posts-item-content">Java Swing制作计算器</div></a>
+        <a href="/2023/05/20/Java-Swing制作计算器/"><div class="recent-posts-item-content">JavaSwing制作计算器</div></a>
       </div>
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2023-05-05</div>
         <a href="/2023/05/05/鸡鸭识别器/"><div class="recent-posts-item-content">鸡鸭识别器</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2023-04-26</div>
-        <a href="/2023/04/26/OS计算方法集合/"><div class="recent-posts-item-content">OS计算方法集合</div></a>
       </div>
     
   </div>
@@ -394,7 +371,7 @@
           
           2023 -
           
-          2023
+          2024
         </span>
         <a href="/" class="footer-link">Newoahil's Blog </a>
       </div>
